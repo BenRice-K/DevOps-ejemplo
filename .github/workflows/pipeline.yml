@@ -1,0 +1,43 @@
+name: DevOps Pipeline
+on:
+    push:
+        branches: [ main ]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 22
+            - run: npm install
+            - run: npm test
+
+
+# name: DevOps Pipeline
+
+# on:
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout código
+#         uses: actions/checkout@v4
+
+#       - name: Configurar Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 22
+#           cache: 'npm' # Esto acelera la instalación en futuros pushes
+
+#       - name: Instalar dependencias
+#         run: npm ci # Usa 'ci' en lugar de 'install' para evitar problemas de permisos
+
+#       - name: Ejecutar pruebas
+#         run: npm test
