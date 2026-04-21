@@ -41,3 +41,7 @@ jobs:
 
       - name: Run Tests
         run: npm test
+
+      - name: Auditoria de seguridad
+        run: npm audit --audit-level=high
+        
